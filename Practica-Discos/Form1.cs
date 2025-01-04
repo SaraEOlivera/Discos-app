@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DominioDiscos;
 using NegocioDiscos;
+using Utilidades;
 
 namespace Practica_Discos
 {
@@ -131,7 +132,6 @@ namespace Practica_Discos
             }
         }
 
-
         private bool validarFiltro() 
         {
             if (cboCampo.SelectedIndex < 0) 
@@ -152,7 +152,7 @@ namespace Practica_Discos
                     return true;
                 }
 
-                if (!(soloNumeros(txtFiltroAvanzado.Text))) 
+                if (!(Validaciones.soloNumeros(txtFiltroAvanzado.Text))) 
                 {
                     MessageBox.Show("Debe ingresar solo números");
                     return true;
@@ -160,7 +160,7 @@ namespace Practica_Discos
             }
             return false;
         }
-
+        /*
         private bool soloNumeros(string cadena) 
         {
             foreach (char caracter in cadena)
@@ -170,7 +170,7 @@ namespace Practica_Discos
             }
             return true;
         }
-
+        */
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             List<Disco> listaFiltrada;

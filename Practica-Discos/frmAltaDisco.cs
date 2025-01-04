@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DominioDiscos;
 using NegocioDiscos;
+using Utilidades;
 
 namespace Practica_Discos
 {
@@ -37,12 +38,39 @@ namespace Practica_Discos
             Close();
         }
 
+        //validar campos 
+        private bool validarCamposAlta() 
+        {
+            if (string.IsNullOrEmpty(txtTitulo.Text)) 
+            {
+                MessageBox.Show("El campo Título es obligatorio");
+                return true;
+            }
+            if (string.IsNullOrEmpty(txtCanciones.Text)) 
+            {
+                MessageBox.Show("El campo Cantidad de Canciones es obligatorio");
+                return true;
+            }
+
+            if (!(Validaciones.soloNumeros(txtCanciones.Text))) 
+            {
+                MessageBox.Show("Debe ingresar solo números en este campo");
+                return true;
+            }
+            return false;
+        }
+        
+
+
         private void btnAceptar_Click(object sender, EventArgs e)
         {
            //Disco nuevoDisco = new Disco();
             DiscosDatos datos = new DiscosDatos();
             try
             {
+                if (validarCamposAlta())
+                    return;
+
                 if (disco == null) 
                     disco = new Disco();
 
