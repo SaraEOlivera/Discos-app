@@ -27,7 +27,7 @@ namespace Practica_Discos
             cboCampo.Items.Add("Titulo");
             cboCampo.Items.Add("Cant. de Canciones");
             cboCampo.Items.Add("Descripcion");
-
+            habilitarBotones();
         }
 
         private void dgvDiscos_SelectionChanged(object sender, EventArgs e)
@@ -37,6 +37,7 @@ namespace Practica_Discos
                 Disco seleccionado = (Disco)dgvDiscos.CurrentRow.DataBoundItem;
                 cargarImagen(seleccionado.UrlImagenTapa);
             }
+            habilitarBotones();
         }
 
         private void cargar() 
@@ -101,11 +102,13 @@ namespace Practica_Discos
         private void btnEliminacionFisica_Click(object sender, EventArgs e)
         {
             eliminar();
+            habilitarBotones();
         }
 
         private void btnEliminacionLogica_Click(object sender, EventArgs e)
         {
             eliminar(true);
+            habilitarBotones();
         }
 
         private void eliminar(bool logico = false) 
@@ -160,17 +163,7 @@ namespace Practica_Discos
             }
             return false;
         }
-        /*
-        private bool soloNumeros(string cadena) 
-        {
-            foreach (char caracter in cadena)
-            {
-                if (!(char.IsNumber(caracter)))
-                    return false;
-            }
-            return true;
-        }
-        */
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             List<Disco> listaFiltrada;
@@ -238,6 +231,26 @@ namespace Practica_Discos
             {
                 MessageBox.Show(ex.ToString());
             }
+            habilitarBotones();
         }
+
+        private void habilitarBotones() 
+        {
+            if (dgvDiscos.Rows.Count == 0)
+            {
+                btnModificar.Enabled = false;
+                btnEliminacionLogica.Enabled = false;
+                btnEliminacionFisica.Enabled = false;
+            }
+            else
+            {
+                btnModificar.Enabled = true;
+                btnEliminacionLogica.Enabled = true;
+                btnEliminacionFisica.Enabled = true;
+            }
+        }
+
     }
+
+ 
 }
