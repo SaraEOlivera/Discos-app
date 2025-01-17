@@ -196,20 +196,27 @@ namespace Practica_Discos
 
         private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string opcion = cboCampo.SelectedItem.ToString();
-            if (opcion == "Cant. de Canciones")
+            if (cboCampo.SelectedItem != null)
             {
-                cboCriterio.Items.Clear();
-                cboCriterio.Items.Add("Mayor a");
-                cboCriterio.Items.Add("Menor a");
-                cboCriterio.Items.Add("Igual a");
+                string opcion = cboCampo.SelectedItem.ToString();
+                if (opcion == "Cant. de Canciones")
+                {
+                    cboCriterio.Items.Clear();
+                    cboCriterio.Items.Add("Mayor a");
+                    cboCriterio.Items.Add("Menor a");
+                    cboCriterio.Items.Add("Igual a");
+                }
+                else
+                {
+                    cboCriterio.Items.Clear();
+                    cboCriterio.Items.Add("Comienza con ");
+                    cboCriterio.Items.Add("Termina con ");
+                    cboCriterio.Items.Add("Contiene ");
+                }
             }
             else
             {
                 cboCriterio.Items.Clear();
-                cboCriterio.Items.Add("Comienza con ");
-                cboCriterio.Items.Add("Termina con ");
-                cboCriterio.Items.Add("Contiene ");
             }
         }
 
@@ -234,6 +241,13 @@ namespace Practica_Discos
                 MessageBox.Show(ex.ToString());
             }
             habilitarBotones();
+            //limpiar el filtro
+            txtFiltroAvanzado.Text = string.Empty;
+            if (cboCampo != null && cboCampo.Items.Count > 0)
+                cboCampo.SelectedIndex = -1;
+
+            if (cboCriterio != null && cboCriterio.Items.Count > 0)
+                cboCriterio.SelectedIndex = -1;
         }
 
         private void habilitarBotones() 
