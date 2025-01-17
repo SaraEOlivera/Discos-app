@@ -26,7 +26,7 @@ namespace Practica_Discos
             cargar();
             cboCampo.Items.Add("Titulo");
             cboCampo.Items.Add("Cant. de Canciones");
-            cboCampo.Items.Add("Descripcion");
+            cboCampo.Items.Add("Estilo");
             habilitarBotones();
         }
 
