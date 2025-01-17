@@ -271,6 +271,11 @@ namespace Practica_Discos
             cargar();
             btnVolver.Visible = false;
         }
+
+        private void dgvDiscos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //se abre la vista detallada
+        }
     }
 
  

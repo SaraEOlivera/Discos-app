@@ -60,6 +60,7 @@
             this.dgvDiscos.Size = new System.Drawing.Size(483, 178);
             this.dgvDiscos.TabIndex = 0;
             this.dgvDiscos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDiscos_CellContentClick);
+            this.dgvDiscos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDiscos_CellDoubleClick);
             this.dgvDiscos.SelectionChanged += new System.EventHandler(this.dgvDiscos_SelectionChanged);
             // 
             // pbxDiscos
