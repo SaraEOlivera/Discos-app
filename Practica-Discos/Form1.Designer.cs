@@ -44,6 +44,7 @@
             this.lblFiltroAvanzado = new System.Windows.Forms.Label();
             this.txtFiltroAvanzado = new System.Windows.Forms.TextBox();
             this.btnFiltroAvanzado = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiscos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDiscos)).BeginInit();
             this.SuspendLayout();
@@ -56,16 +57,16 @@
             this.dgvDiscos.MultiSelect = false;
             this.dgvDiscos.Name = "dgvDiscos";
             this.dgvDiscos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDiscos.Size = new System.Drawing.Size(574, 178);
+            this.dgvDiscos.Size = new System.Drawing.Size(483, 178);
             this.dgvDiscos.TabIndex = 0;
             this.dgvDiscos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDiscos_CellContentClick);
             this.dgvDiscos.SelectionChanged += new System.EventHandler(this.dgvDiscos_SelectionChanged);
             // 
             // pbxDiscos
             // 
-            this.pbxDiscos.Location = new System.Drawing.Point(606, 86);
+            this.pbxDiscos.Location = new System.Drawing.Point(515, 86);
             this.pbxDiscos.Name = "pbxDiscos";
-            this.pbxDiscos.Size = new System.Drawing.Size(167, 150);
+            this.pbxDiscos.Size = new System.Drawing.Size(178, 178);
             this.pbxDiscos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxDiscos.TabIndex = 1;
             this.pbxDiscos.TabStop = false;
@@ -194,7 +195,7 @@
             // 
             // btnFiltroAvanzado
             // 
-            this.btnFiltroAvanzado.Location = new System.Drawing.Point(484, 296);
+            this.btnFiltroAvanzado.Location = new System.Drawing.Point(515, 296);
             this.btnFiltroAvanzado.Name = "btnFiltroAvanzado";
             this.btnFiltroAvanzado.Size = new System.Drawing.Size(75, 23);
             this.btnFiltroAvanzado.TabIndex = 15;
@@ -202,11 +203,22 @@
             this.btnFiltroAvanzado.UseVisualStyleBackColor = true;
             this.btnFiltroAvanzado.Click += new System.EventHandler(this.btnFiltroAvanzado_Click);
             // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(618, 296);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(75, 23);
+            this.btnVolver.TabIndex = 16;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // frmDiscos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 331);
+            this.ClientSize = new System.Drawing.Size(708, 331);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnFiltroAvanzado);
             this.Controls.Add(this.txtFiltroAvanzado);
             this.Controls.Add(this.lblFiltroAvanzado);
@@ -251,6 +263,7 @@
         private System.Windows.Forms.Label lblFiltroAvanzado;
         private System.Windows.Forms.TextBox txtFiltroAvanzado;
         private System.Windows.Forms.Button btnFiltroAvanzado;
+        private System.Windows.Forms.Button btnVolver;
     }
 }
 

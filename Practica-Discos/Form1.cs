@@ -38,6 +38,7 @@ namespace Practica_Discos
                 cargarImagen(seleccionado.UrlImagenTapa);
             }
             habilitarBotones();
+            btnVolver.Visible = false;
         }
 
         private void cargar() 
@@ -225,6 +226,7 @@ namespace Practica_Discos
                 string filtro = txtFiltroAvanzado.Text;
 
                 dgvDiscos.DataSource = datos.filtrar(campo, criterio, filtro);
+                btnVolver.Visible = true;
 
             }
             catch (Exception ex)
@@ -250,6 +252,11 @@ namespace Practica_Discos
             }
         }
 
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            cargar();
+            btnVolver.Visible = false;
+        }
     }
 
  
