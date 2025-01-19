@@ -78,11 +78,6 @@ namespace Practica_Discos
             }
         }
 
-        private void dgvDiscos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             frmAltaDisco alta = new frmAltaDisco();
@@ -272,9 +267,14 @@ namespace Practica_Discos
             btnVolver.Visible = false;
         }
 
-        private void dgvDiscos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvDiscos_CellDoubleClick(object sender, DataGridViewCellEventArgs evento)
         {
-            //se abre la vista detallada
+            if (evento.RowIndex >= 0) 
+            {
+                Disco fila = (Disco)dgvDiscos.CurrentRow.DataBoundItem;
+                frmDetalle vista = new frmDetalle(fila);
+                vista.ShowDialog();
+            }
         }
     }
 

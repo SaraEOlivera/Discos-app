@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.lblTituloDetalle = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtTituloDetalle = new System.Windows.Forms.TextBox();
+            this.txtLanzamientoDetalle = new System.Windows.Forms.TextBox();
             this.lblFechaDetalle = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtCantCancionesDetalle = new System.Windows.Forms.TextBox();
             this.lblCancionesDetalle = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtEstiloDetalle = new System.Windows.Forms.TextBox();
             this.lblEstiloDetalle = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtTipoEdicionDetalle = new System.Windows.Forms.TextBox();
             this.lblTipoEdicionDetalle = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtActivoDetalle = new System.Windows.Forms.TextBox();
             this.lblActivoDetalle = new System.Windows.Forms.Label();
             this.pboImagenDetalle = new System.Windows.Forms.PictureBox();
             this.btnVolverDetalle = new System.Windows.Forms.Button();
@@ -54,21 +54,21 @@
             this.lblTituloDetalle.TabIndex = 0;
             this.lblTituloDetalle.Text = "Titulo";
             // 
-            // textBox1
+            // txtTituloDetalle
             // 
-            this.textBox1.Location = new System.Drawing.Point(113, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(233, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtTituloDetalle.Location = new System.Drawing.Point(113, 13);
+            this.txtTituloDetalle.Name = "txtTituloDetalle";
+            this.txtTituloDetalle.ReadOnly = true;
+            this.txtTituloDetalle.Size = new System.Drawing.Size(233, 20);
+            this.txtTituloDetalle.TabIndex = 1;
             // 
-            // textBox2
+            // txtLanzamientoDetalle
             // 
-            this.textBox2.Location = new System.Drawing.Point(113, 49);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(233, 20);
-            this.textBox2.TabIndex = 3;
+            this.txtLanzamientoDetalle.Location = new System.Drawing.Point(113, 49);
+            this.txtLanzamientoDetalle.Name = "txtLanzamientoDetalle";
+            this.txtLanzamientoDetalle.ReadOnly = true;
+            this.txtLanzamientoDetalle.Size = new System.Drawing.Size(233, 20);
+            this.txtLanzamientoDetalle.TabIndex = 3;
             // 
             // lblFechaDetalle
             // 
@@ -79,13 +79,13 @@
             this.lblFechaDetalle.TabIndex = 2;
             this.lblFechaDetalle.Text = "Lanzamiendo";
             // 
-            // textBox3
+            // txtCantCancionesDetalle
             // 
-            this.textBox3.Location = new System.Drawing.Point(113, 87);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(233, 20);
-            this.textBox3.TabIndex = 5;
+            this.txtCantCancionesDetalle.Location = new System.Drawing.Point(113, 87);
+            this.txtCantCancionesDetalle.Name = "txtCantCancionesDetalle";
+            this.txtCantCancionesDetalle.ReadOnly = true;
+            this.txtCantCancionesDetalle.Size = new System.Drawing.Size(233, 20);
+            this.txtCantCancionesDetalle.TabIndex = 5;
             // 
             // lblCancionesDetalle
             // 
@@ -96,13 +96,13 @@
             this.lblCancionesDetalle.TabIndex = 4;
             this.lblCancionesDetalle.Text = "Cant. Canciones";
             // 
-            // textBox4
+            // txtEstiloDetalle
             // 
-            this.textBox4.Location = new System.Drawing.Point(113, 127);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(233, 20);
-            this.textBox4.TabIndex = 7;
+            this.txtEstiloDetalle.Location = new System.Drawing.Point(113, 127);
+            this.txtEstiloDetalle.Name = "txtEstiloDetalle";
+            this.txtEstiloDetalle.ReadOnly = true;
+            this.txtEstiloDetalle.Size = new System.Drawing.Size(233, 20);
+            this.txtEstiloDetalle.TabIndex = 7;
             // 
             // lblEstiloDetalle
             // 
@@ -113,13 +113,13 @@
             this.lblEstiloDetalle.TabIndex = 6;
             this.lblEstiloDetalle.Text = "Estilo";
             // 
-            // textBox5
+            // txtTipoEdicionDetalle
             // 
-            this.textBox5.Location = new System.Drawing.Point(113, 171);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(233, 20);
-            this.textBox5.TabIndex = 9;
+            this.txtTipoEdicionDetalle.Location = new System.Drawing.Point(113, 171);
+            this.txtTipoEdicionDetalle.Name = "txtTipoEdicionDetalle";
+            this.txtTipoEdicionDetalle.ReadOnly = true;
+            this.txtTipoEdicionDetalle.Size = new System.Drawing.Size(233, 20);
+            this.txtTipoEdicionDetalle.TabIndex = 9;
             // 
             // lblTipoEdicionDetalle
             // 
@@ -130,13 +130,13 @@
             this.lblTipoEdicionDetalle.TabIndex = 8;
             this.lblTipoEdicionDetalle.Text = "Edición";
             // 
-            // textBox6
+            // txtActivoDetalle
             // 
-            this.textBox6.Location = new System.Drawing.Point(113, 213);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(233, 20);
-            this.textBox6.TabIndex = 11;
+            this.txtActivoDetalle.Location = new System.Drawing.Point(113, 213);
+            this.txtActivoDetalle.Name = "txtActivoDetalle";
+            this.txtActivoDetalle.ReadOnly = true;
+            this.txtActivoDetalle.Size = new System.Drawing.Size(233, 20);
+            this.txtActivoDetalle.TabIndex = 11;
             // 
             // lblActivoDetalle
             // 
@@ -163,6 +163,7 @@
             this.btnVolverDetalle.TabIndex = 13;
             this.btnVolverDetalle.Text = "Volver";
             this.btnVolverDetalle.UseVisualStyleBackColor = true;
+            this.btnVolverDetalle.Click += new System.EventHandler(this.btnVolverDetalle_Click);
             // 
             // frmDetalle
             // 
@@ -171,20 +172,21 @@
             this.ClientSize = new System.Drawing.Size(668, 247);
             this.Controls.Add(this.btnVolverDetalle);
             this.Controls.Add(this.pboImagenDetalle);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txtActivoDetalle);
             this.Controls.Add(this.lblActivoDetalle);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtTipoEdicionDetalle);
             this.Controls.Add(this.lblTipoEdicionDetalle);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtEstiloDetalle);
             this.Controls.Add(this.lblEstiloDetalle);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtCantCancionesDetalle);
             this.Controls.Add(this.lblCancionesDetalle);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtLanzamientoDetalle);
             this.Controls.Add(this.lblFechaDetalle);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtTituloDetalle);
             this.Controls.Add(this.lblTituloDetalle);
             this.Name = "frmDetalle";
             this.Text = "Vista Detallada";
+            this.Load += new System.EventHandler(this.frmDetalle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pboImagenDetalle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -194,16 +196,16 @@
         #endregion
 
         private System.Windows.Forms.Label lblTituloDetalle;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtTituloDetalle;
+        private System.Windows.Forms.TextBox txtLanzamientoDetalle;
         private System.Windows.Forms.Label lblFechaDetalle;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtCantCancionesDetalle;
         private System.Windows.Forms.Label lblCancionesDetalle;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtEstiloDetalle;
         private System.Windows.Forms.Label lblEstiloDetalle;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtTipoEdicionDetalle;
         private System.Windows.Forms.Label lblTipoEdicionDetalle;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtActivoDetalle;
         private System.Windows.Forms.Label lblActivoDetalle;
         private System.Windows.Forms.PictureBox pboImagenDetalle;
         private System.Windows.Forms.Button btnVolverDetalle;
