@@ -23,7 +23,7 @@ namespace NegocioDiscos
 			{
 				conexion.ConnectionString = "server = .\\SQLEXPRESS; database = DISCOS_DB; Integrated Security=true";
 				comando.CommandType = System.Data.CommandType.Text;
-				comando.CommandText = "select D.Id, Titulo, CantidadCanciones, UrlImagenTapa, E.Descripcion as Estilo, T.Descripcion as Tipo, D.idEstilo, D.IdTipoEdicion from DISCOS D, ESTILOS E, TIPOSEDICION T where E.Id = D.IdEstilo and T.Id = D.IdTipoEdicion AND Activo = 1";
+				comando.CommandText = "select D.Id, Titulo, FechaLanzamiento ,CantidadCanciones, UrlImagenTapa, E.Descripcion as Estilo, T.Descripcion as Tipo, D.idEstilo, D.IdTipoEdicion, Activo from DISCOS D, ESTILOS E, TIPOSEDICION T where E.Id = D.IdEstilo and T.Id = D.IdTipoEdicion AND Activo = 1";
 				comando.Connection = conexion;
 
 				conexion.Open();
@@ -34,8 +34,13 @@ namespace NegocioDiscos
 					Disco auxiliar = new Disco();
 					auxiliar.Id = (int)lector["Id"];
 					auxiliar.Titulo = (string)lector["Titulo"];
-					auxiliar.CantidadCanciones = (int)lector["CantidadCanciones"];
 
+					if (lector["FechaLanzamiento"] is DBNull)
+						auxiliar.FechaLanzamiento = null;
+					else
+                        auxiliar.FechaLanzamiento = (DateTime)lector["FechaLanzamiento"];
+
+                    auxiliar.CantidadCanciones = (int)lector["CantidadCanciones"];
 
                     if (!(lector["UrlImagenTapa"] is DBNull))
                         auxiliar.UrlImagenTapa = (string)lector["UrlImagenTapa"];
@@ -47,6 +52,7 @@ namespace NegocioDiscos
                     auxiliar.Tipo = new Tipo();
                    auxiliar.Tipo.Id = (int)lector["IdTipoEdicion"];
                     auxiliar.Tipo.Descripcion = (string)lector["Tipo"];
+					auxiliar.Activo = (bool)lector["Activo"];
 
 					lista.Add(auxiliar);
 				}

@@ -152,6 +152,7 @@
             this.pboImagenDetalle.Location = new System.Drawing.Point(380, 13);
             this.pboImagenDetalle.Name = "pboImagenDetalle";
             this.pboImagenDetalle.Size = new System.Drawing.Size(273, 191);
+            this.pboImagenDetalle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pboImagenDetalle.TabIndex = 12;
             this.pboImagenDetalle.TabStop = false;
             // 

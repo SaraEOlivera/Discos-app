@@ -63,6 +63,8 @@ namespace Practica_Discos
         {
             dgvDiscos.Columns["UrlImagenTapa"].Visible = false;
             dgvDiscos.Columns["Id"].Visible = false;
+            dgvDiscos.Columns["FechaLanzamiento"].Visible = false;
+            dgvDiscos.Columns["Activo"].Visible = false;
         }
 
         private void cargarImagen(string imagen) 
