@@ -77,6 +77,7 @@ namespace Practica_Discos
                 //Cargar el objeto con los datos
                 disco.Titulo = txtTitulo.Text;
                 disco.CantidadCanciones = int.Parse(txtCanciones.Text);
+                disco.FechaLanzamiento = DateTime.Parse(txtFechaLanzamiento.Text);
                 disco.UrlImagenTapa = txtUrlImagen.Text;
                 //Desplegable 
                 disco.Estilo = (Estilo)cboEstilo.SelectedItem;

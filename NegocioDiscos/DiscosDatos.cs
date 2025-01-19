@@ -74,16 +74,13 @@ namespace NegocioDiscos
 			AccesoDatos datosDeAcceso = new AccesoDatos();
 			try
 			{
-                datosDeAcceso.setearConsulta("INSERT INTO DISCOS (Titulo, CantidadCanciones, Activo, IdEstilo, IdTipoEdicion, UrlImagenTapa) VALUES ('"
-                    + nuevo.Titulo + "', "
-                    + nuevo.CantidadCanciones + ", "
-					+ " 1, "
-                    + "@IdEstilo, "
-                    + "@IdTipoEdicion, "
-                     + "@UrlImagenTapa)");
+                //datosDeAcceso.setearConsulta("INSERT INTO DISCOS (Titulo, FechaLanzamiento ,CantidadCanciones, Activo, IdEstilo, IdTipoEdicion, UrlImagenTapa) VALUES ('" + nuevo.Titulo + "', " + nuevo.CantidadCanciones + ", " + " 1, " + "@IdEstilo, " + "@IdTipoEdicion, " + "@UrlImagenTapa)");
+                datosDeAcceso.setearConsulta("INSERT INTO DISCOS (Titulo, FechaLanzamiento, CantidadCanciones, Activo, IdEstilo, IdTipoEdicion, UrlImagenTapa) VALUES (@Titulo,@FechaLanzamiento, @CantidadCanciones,  1, @IdEstilo, @IdTipoEdicion, @UrlImagenTapa)");
 
-
-				datosDeAcceso.setearParametro("@IdEstilo", nuevo.Estilo.Id);
+				datosDeAcceso.setearParametro("@Titulo", nuevo.Titulo);
+				datosDeAcceso.setearParametro("@FechaLanzamiento", nuevo.FechaLanzamiento);
+				datosDeAcceso.setearParametro("@CantidadCanciones", nuevo.CantidadCanciones);
+                datosDeAcceso.setearParametro("@IdEstilo", nuevo.Estilo.Id);
 				datosDeAcceso.setearParametro("@IdTipoEdicion", nuevo.Tipo.Id);
 				datosDeAcceso.setearParametro("@UrlImagenTapa", nuevo.UrlImagenTapa);
                 datosDeAcceso.ejecutarAccion();

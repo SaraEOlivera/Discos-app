@@ -42,12 +42,14 @@
             this.txtUrlImagen = new System.Windows.Forms.TextBox();
             this.pbxDiscos = new System.Windows.Forms.PictureBox();
             this.btnAgregarImagen = new System.Windows.Forms.Button();
+            this.lblFechaLanzamiento = new System.Windows.Forms.Label();
+            this.txtFechaLanzamiento = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDiscos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(138, 187);
+            this.btnCancelar.Location = new System.Drawing.Point(164, 198);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(73, 23);
             this.btnCancelar.TabIndex = 6;
@@ -57,7 +59,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(33, 187);
+            this.btnAceptar.Location = new System.Drawing.Point(59, 198);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(72, 23);
             this.btnAceptar.TabIndex = 5;
@@ -68,7 +70,7 @@
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Location = new System.Drawing.Point(41, 23);
+            this.lblTitulo.Location = new System.Drawing.Point(81, 23);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(33, 13);
             this.lblTitulo.TabIndex = 2;
@@ -77,7 +79,7 @@
             // lblCanciones
             // 
             this.lblCanciones.AutoSize = true;
-            this.lblCanciones.Location = new System.Drawing.Point(20, 53);
+            this.lblCanciones.Location = new System.Drawing.Point(29, 53);
             this.lblCanciones.Name = "lblCanciones";
             this.lblCanciones.Size = new System.Drawing.Size(85, 13);
             this.lblCanciones.TabIndex = 4;
@@ -100,7 +102,7 @@
             // lblEstilo
             // 
             this.lblEstilo.AutoSize = true;
-            this.lblEstilo.Location = new System.Drawing.Point(41, 112);
+            this.lblEstilo.Location = new System.Drawing.Point(82, 136);
             this.lblEstilo.Name = "lblEstilo";
             this.lblEstilo.Size = new System.Drawing.Size(32, 13);
             this.lblEstilo.TabIndex = 8;
@@ -109,7 +111,7 @@
             // lblTipoEdicion
             // 
             this.lblTipoEdicion.AutoSize = true;
-            this.lblTipoEdicion.Location = new System.Drawing.Point(27, 140);
+            this.lblTipoEdicion.Location = new System.Drawing.Point(48, 164);
             this.lblTipoEdicion.Name = "lblTipoEdicion";
             this.lblTipoEdicion.Size = new System.Drawing.Size(66, 13);
             this.lblTipoEdicion.TabIndex = 9;
@@ -119,7 +121,7 @@
             // 
             this.cboEstilo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEstilo.FormattingEnabled = true;
-            this.cboEstilo.Location = new System.Drawing.Point(128, 109);
+            this.cboEstilo.Location = new System.Drawing.Point(128, 133);
             this.cboEstilo.Name = "cboEstilo";
             this.cboEstilo.Size = new System.Drawing.Size(121, 21);
             this.cboEstilo.TabIndex = 3;
@@ -128,7 +130,7 @@
             // 
             this.cboTipoEdicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTipoEdicion.FormattingEnabled = true;
-            this.cboTipoEdicion.Location = new System.Drawing.Point(128, 137);
+            this.cboTipoEdicion.Location = new System.Drawing.Point(128, 161);
             this.cboTipoEdicion.Name = "cboTipoEdicion";
             this.cboTipoEdicion.Size = new System.Drawing.Size(121, 21);
             this.cboTipoEdicion.TabIndex = 4;
@@ -136,7 +138,7 @@
             // lblUrlImagen
             // 
             this.lblUrlImagen.AutoSize = true;
-            this.lblUrlImagen.Location = new System.Drawing.Point(33, 80);
+            this.lblUrlImagen.Location = new System.Drawing.Point(56, 104);
             this.lblUrlImagen.Name = "lblUrlImagen";
             this.lblUrlImagen.Size = new System.Drawing.Size(58, 13);
             this.lblUrlImagen.TabIndex = 12;
@@ -144,7 +146,7 @@
             // 
             // txtUrlImagen
             // 
-            this.txtUrlImagen.Location = new System.Drawing.Point(128, 78);
+            this.txtUrlImagen.Location = new System.Drawing.Point(128, 102);
             this.txtUrlImagen.Name = "txtUrlImagen";
             this.txtUrlImagen.Size = new System.Drawing.Size(121, 20);
             this.txtUrlImagen.TabIndex = 2;
@@ -161,7 +163,7 @@
             // 
             // btnAgregarImagen
             // 
-            this.btnAgregarImagen.Location = new System.Drawing.Point(255, 78);
+            this.btnAgregarImagen.Location = new System.Drawing.Point(255, 102);
             this.btnAgregarImagen.Name = "btnAgregarImagen";
             this.btnAgregarImagen.Size = new System.Drawing.Size(32, 23);
             this.btnAgregarImagen.TabIndex = 15;
@@ -169,11 +171,29 @@
             this.btnAgregarImagen.UseVisualStyleBackColor = true;
             this.btnAgregarImagen.Click += new System.EventHandler(this.btnAgregarImagen_Click);
             // 
+            // lblFechaLanzamiento
+            // 
+            this.lblFechaLanzamiento.AutoSize = true;
+            this.lblFechaLanzamiento.Location = new System.Drawing.Point(20, 76);
+            this.lblFechaLanzamiento.Name = "lblFechaLanzamiento";
+            this.lblFechaLanzamiento.Size = new System.Drawing.Size(94, 13);
+            this.lblFechaLanzamiento.TabIndex = 16;
+            this.lblFechaLanzamiento.Text = "Feha Lanzamiento";
+            // 
+            // txtFechaLanzamiento
+            // 
+            this.txtFechaLanzamiento.Location = new System.Drawing.Point(128, 76);
+            this.txtFechaLanzamiento.Name = "txtFechaLanzamiento";
+            this.txtFechaLanzamiento.Size = new System.Drawing.Size(121, 20);
+            this.txtFechaLanzamiento.TabIndex = 17;
+            // 
             // frmAltaDisco
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(471, 223);
+            this.Controls.Add(this.txtFechaLanzamiento);
+            this.Controls.Add(this.lblFechaLanzamiento);
             this.Controls.Add(this.btnAgregarImagen);
             this.Controls.Add(this.pbxDiscos);
             this.Controls.Add(this.txtUrlImagen);
@@ -214,5 +234,7 @@
         private System.Windows.Forms.TextBox txtUrlImagen;
         private System.Windows.Forms.PictureBox pbxDiscos;
         private System.Windows.Forms.Button btnAgregarImagen;
+        private System.Windows.Forms.Label lblFechaLanzamiento;
+        private System.Windows.Forms.TextBox txtFechaLanzamiento;
     }
 }
