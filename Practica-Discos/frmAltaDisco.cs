@@ -87,7 +87,12 @@ namespace Practica_Discos
                 disco.Titulo = txtTitulo.Text;
                 disco.CantidadCanciones = int.Parse(txtCanciones.Text);
                 disco.FechaLanzamiento = DateTime.Parse(txtFechaLanzamiento.Text);
-                disco.UrlImagenTapa = txtUrlImagen.Text;
+
+                if (string.IsNullOrWhiteSpace(txtUrlImagen.Text))
+                    disco.UrlImagenTapa = "https://t4.ftcdn.net/jpg/06/71/92/37/360_F_671923740_x0zOL3OIuUAnSF6sr7PuznCI5bQFKhI0.jpg";
+                else
+                    disco.UrlImagenTapa = txtUrlImagen.Text;
+
                 //Desplegable 
                 disco.Estilo = (Estilo)cboEstilo.SelectedItem;
                 disco.Tipo = (Tipo)cboTipoEdicion.SelectedItem;
@@ -138,6 +143,7 @@ namespace Practica_Discos
                     txtCanciones.Text = disco.CantidadCanciones.ToString();
                     txtFechaLanzamiento.Text = disco.FechaLanzamiento.HasValue 
                         ? disco.FechaLanzamiento.Value.ToString("dd-MM-yyyy") : string.Empty;
+
                     txtUrlImagen.Text = disco.UrlImagenTapa;
                     cargarImagen(disco.UrlImagenTapa);
 
