@@ -136,6 +136,8 @@ namespace Practica_Discos
                 {
                     txtTitulo.Text = disco.Titulo;
                     txtCanciones.Text = disco.CantidadCanciones.ToString();
+                    txtFechaLanzamiento.Text = disco.FechaLanzamiento.HasValue 
+                        ? disco.FechaLanzamiento.Value.ToString("dd-MM-yyyy") : string.Empty;
                     txtUrlImagen.Text = disco.UrlImagenTapa;
                     cargarImagen(disco.UrlImagenTapa);
 
