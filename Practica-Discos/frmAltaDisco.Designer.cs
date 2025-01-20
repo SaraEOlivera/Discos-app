@@ -52,7 +52,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(164, 198);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(73, 23);
-            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -62,7 +62,7 @@
             this.btnAceptar.Location = new System.Drawing.Point(59, 198);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(72, 23);
-            this.btnAceptar.TabIndex = 5;
+            this.btnAceptar.TabIndex = 6;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -124,7 +124,7 @@
             this.cboEstilo.Location = new System.Drawing.Point(128, 133);
             this.cboEstilo.Name = "cboEstilo";
             this.cboEstilo.Size = new System.Drawing.Size(121, 21);
-            this.cboEstilo.TabIndex = 3;
+            this.cboEstilo.TabIndex = 4;
             // 
             // cboTipoEdicion
             // 
@@ -133,7 +133,7 @@
             this.cboTipoEdicion.Location = new System.Drawing.Point(128, 161);
             this.cboTipoEdicion.Name = "cboTipoEdicion";
             this.cboTipoEdicion.Size = new System.Drawing.Size(121, 21);
-            this.cboTipoEdicion.TabIndex = 4;
+            this.cboTipoEdicion.TabIndex = 5;
             // 
             // lblUrlImagen
             // 
@@ -149,7 +149,7 @@
             this.txtUrlImagen.Location = new System.Drawing.Point(128, 102);
             this.txtUrlImagen.Name = "txtUrlImagen";
             this.txtUrlImagen.Size = new System.Drawing.Size(121, 20);
-            this.txtUrlImagen.TabIndex = 2;
+            this.txtUrlImagen.TabIndex = 3;
             this.txtUrlImagen.Leave += new System.EventHandler(this.txtUrlImagen_Leave);
             // 
             // pbxDiscos
@@ -185,7 +185,7 @@
             this.txtFechaLanzamiento.Location = new System.Drawing.Point(128, 76);
             this.txtFechaLanzamiento.Name = "txtFechaLanzamiento";
             this.txtFechaLanzamiento.Size = new System.Drawing.Size(121, 20);
-            this.txtFechaLanzamiento.TabIndex = 17;
+            this.txtFechaLanzamiento.TabIndex = 2;
             // 
             // frmAltaDisco
             // 

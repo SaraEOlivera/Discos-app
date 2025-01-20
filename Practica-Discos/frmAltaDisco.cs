@@ -41,11 +41,14 @@ namespace Practica_Discos
         //validar campos 
         private bool validarCamposAlta() 
         {
+            DateTime lanzamiento;
+
             if (string.IsNullOrEmpty(txtTitulo.Text)) 
             {
                 MessageBox.Show("El campo Título es obligatorio");
                 return true;
             }
+        
             if (string.IsNullOrEmpty(txtCanciones.Text)) 
             {
                 MessageBox.Show("El campo Cantidad de Canciones es obligatorio");
@@ -57,9 +60,15 @@ namespace Practica_Discos
                 MessageBox.Show("Debe ingresar solo números en este campo");
                 return true;
             }
+
+            if (!(DateTime.TryParse(this.txtFechaLanzamiento.Text, out lanzamiento))) 
+            {
+                MessageBox.Show("Debe ingresar solo fechas en el campo Fecha");
+                return true;
+            }
+
             return false;
         }
-        
 
 
         private void btnAceptar_Click(object sender, EventArgs e)

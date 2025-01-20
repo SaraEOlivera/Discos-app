@@ -236,6 +236,7 @@
             this.Controls.Add(this.pbxDiscos);
             this.Controls.Add(this.dgvDiscos);
             this.Name = "frmDiscos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Discos";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiscos)).EndInit();

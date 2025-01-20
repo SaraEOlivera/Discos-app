@@ -186,6 +186,7 @@
             this.Controls.Add(this.txtTituloDetalle);
             this.Controls.Add(this.lblTituloDetalle);
             this.Name = "frmDetalle";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vista Detallada";
             this.Load += new System.EventHandler(this.frmDetalle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pboImagenDetalle)).EndInit();
