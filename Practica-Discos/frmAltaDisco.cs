@@ -75,6 +75,7 @@ namespace Practica_Discos
         {
            //Disco nuevoDisco = new Disco();
             DiscosDatos datos = new DiscosDatos();
+            string imagenUrl = txtUrlImagen.Text;
             try
             {
                 if (validarCamposAlta())
@@ -88,7 +89,8 @@ namespace Practica_Discos
                 disco.CantidadCanciones = int.Parse(txtCanciones.Text);
                 disco.FechaLanzamiento = DateTime.Parse(txtFechaLanzamiento.Text);
 
-                if (string.IsNullOrWhiteSpace(txtUrlImagen.Text))
+                //validar img placeholder - url valida
+                if (string.IsNullOrWhiteSpace(imagenUrl) || !(validarUrl(imagenUrl) || validarRutaLocal(imagenUrl)))
                     disco.UrlImagenTapa = "https://t4.ftcdn.net/jpg/06/71/92/37/360_F_671923740_x0zOL3OIuUAnSF6sr7PuznCI5bQFKhI0.jpg";
                 else
                     disco.UrlImagenTapa = txtUrlImagen.Text;
@@ -121,6 +123,17 @@ namespace Practica_Discos
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private bool validarRutaLocal(string rutaLocal)
+        {
+            return File.Exists(rutaLocal);
+        }
+
+        private bool validarUrl(string imagenUrl)
+        {
+            return Uri.TryCreate(imagenUrl, UriKind.Absolute, out Uri uriResult)
+                && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
         }
 
         private void frmAltaDisco_Load(object sender, EventArgs e)
