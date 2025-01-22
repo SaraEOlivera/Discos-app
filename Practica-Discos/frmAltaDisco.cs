@@ -74,16 +74,19 @@ namespace Practica_Discos
         {
             DiscosDatos datos = new DiscosDatos();
             List<Disco> listaDiscos = datos.listarDiscos();
+            string placeholder = "https://t4.ftcdn.net/jpg/06/71/92/37/360_F_671923740_x0zOL3OIuUAnSF6sr7PuznCI5bQFKhI0.jpg";
+
             foreach (Disco disco in listaDiscos)
             {
-                if (disco.Titulo == nombre) 
+                if (disco.Titulo == nombre)
                 {
                     MessageBox.Show("Este disco ya está registrado");
                     return false;
                 }
-                if (disco.UrlImagenTapa == imagen) 
+                //if (!(string.IsNullOrEmpty(imagen)) && !(imagen.Trim().Equals(placeholder.Trim())) && disco.UrlImagenTapa == imagen) 
+                if (!string.IsNullOrEmpty(imagen) && !imagen.Trim().Equals(placeholder.Trim(), StringComparison.OrdinalIgnoreCase) && disco.UrlImagenTapa.Trim().Equals(imagen.Trim(), StringComparison.OrdinalIgnoreCase))
                 {
-                    MessageBox.Show("Esta tada de disco ya está registrada");
+                    MessageBox.Show("Esta tapa de disco ya está registrada");
                     return false;
                 }
             }
@@ -100,6 +103,7 @@ namespace Practica_Discos
             {
                 if (validarCamposAlta())
                     return;
+
                 if (!(validarRepetidos(nombre, imagenUrl)))
                     return;
 
