@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -33,10 +34,9 @@ namespace Practica_Discos
             Text = "Modificar Disco";
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+
+        //cuerpo de expresion para la funcion
+        private void btnCancelar_Click(object sender, EventArgs e) => Close();
 
         //validar campos 
         private bool validarCamposAlta() 
@@ -78,7 +78,10 @@ namespace Practica_Discos
 
             foreach (Disco disco in listaDiscos)
             {
-                if (disco.Titulo == nombre)
+                if (disco != null && disco.Id == disco.Id)
+                    continue;
+
+                if (disco.Titulo.Equals(nombre, StringComparison.OrdinalIgnoreCase))
                 {
                     MessageBox.Show("Este disco ya está registrado");
                     return false;
