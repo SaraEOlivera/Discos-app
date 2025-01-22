@@ -109,6 +109,19 @@ namespace Practica_Discos
             return true;
         }
 
+        private bool validarRangoCanciones(int cantidadCanciones) 
+        {
+            int cantidadMinima = int.Parse(ConfigurationManager.AppSettings["CantidadMinimaCanciones"]);
+            int cantidadMaxima = int.Parse(ConfigurationManager.AppSettings["CantidadMaximaCanciones"]);
+
+            if (cantidadCanciones < cantidadMinima || cantidadCanciones > cantidadMaxima) 
+            {
+                MessageBox.Show($"La cantidad de canciones debe oscilar entre {cantidadMinima} y {cantidadMaxima}.", "Rango inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
         private void btnAceptar_Click(object sender, EventArgs e)
         {
            //Disco nuevoDisco = new Disco();
@@ -116,6 +129,7 @@ namespace Practica_Discos
             string imagenUrl = txtUrlImagen.Text;
             string nombre = txtTitulo.Text;
             DateTime fechaLanzamiento;
+            int cantidadCanciones;
 
             try
             {
@@ -123,6 +137,9 @@ namespace Practica_Discos
                     return;
 
                 if (!DateTime.TryParse(txtFechaLanzamiento.Text, out fechaLanzamiento) || !validarFechaLanzamiento(fechaLanzamiento))
+                    return;
+
+                if(! int.TryParse(txtCanciones.Text, out cantidadCanciones) || !validarRangoCanciones(cantidadCanciones))
                     return;
 
                 if (!(validarRepetidos(nombre, imagenUrl)))
