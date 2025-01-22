@@ -70,15 +70,37 @@ namespace Practica_Discos
             return false;
         }
 
+        private bool validarRepetidos(string nombre, string imagen)
+        {
+            DiscosDatos datos = new DiscosDatos();
+            List<Disco> listaDiscos = datos.listarDiscos();
+            foreach (Disco disco in listaDiscos)
+            {
+                if (disco.Titulo == nombre) 
+                {
+                    MessageBox.Show("Este disco ya está registrado");
+                    return false;
+                }
+                if (disco.UrlImagenTapa == imagen) 
+                {
+                    MessageBox.Show("Esta tada de disco ya está registrada");
+                    return false;
+                }
+            }
+            return true;
+        }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
            //Disco nuevoDisco = new Disco();
             DiscosDatos datos = new DiscosDatos();
             string imagenUrl = txtUrlImagen.Text;
+            string nombre = txtTitulo.Text; 
             try
             {
                 if (validarCamposAlta())
+                    return;
+                if (!(validarRepetidos(nombre, imagenUrl)))
                     return;
 
                 if (disco == null) 
