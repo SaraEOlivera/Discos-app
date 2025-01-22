@@ -22,7 +22,7 @@ namespace DominioDiscos
 
         [DisplayName("Tipo Edición")]
         public Tipo Tipo { get; set; }
-
+    
         [DisplayName("Fecha de Lanzamiento")]
         public DateTime? FechaLanzamiento { get; set; }
         public bool? Activo { get; set; }

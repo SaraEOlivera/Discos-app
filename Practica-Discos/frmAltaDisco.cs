@@ -93,15 +93,36 @@ namespace Practica_Discos
             return true;
         }
 
+        private bool validarFechaLanzamiento(DateTime fecha) 
+        {
+            //leer valores
+            DateTime fechaMinima = DateTime.Parse(ConfigurationManager.AppSettings["FechaLanzamientoMinima"]);
+            int diasFuturosPermitidos = int.Parse(ConfigurationManager.AppSettings["DiasFuturosPermitidos"]);
+            DateTime fechaMaxima = DateTime.Now.AddDays(diasFuturosPermitidos);
+
+            if (fecha < fechaMinima || fecha > fechaMaxima) 
+            {
+                MessageBox.Show($"La fecha de lanzamiento debe ser entre {fechaMinima.ToShortDateString()} y {fechaMaxima.ToShortDateString()}", "Fecha Inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
+        }
+
         private void btnAceptar_Click(object sender, EventArgs e)
         {
            //Disco nuevoDisco = new Disco();
             DiscosDatos datos = new DiscosDatos();
             string imagenUrl = txtUrlImagen.Text;
-            string nombre = txtTitulo.Text; 
+            string nombre = txtTitulo.Text;
+            DateTime fechaLanzamiento;
+
             try
             {
                 if (validarCamposAlta())
+                    return;
+
+                if (!DateTime.TryParse(txtFechaLanzamiento.Text, out fechaLanzamiento) || !validarFechaLanzamiento(fechaLanzamiento))
                     return;
 
                 if (!(validarRepetidos(nombre, imagenUrl)))
@@ -180,6 +201,7 @@ namespace Practica_Discos
                 {
                     txtTitulo.Text = disco.Titulo;
                     txtCanciones.Text = disco.CantidadCanciones.ToString();
+                    //mostrar la fecha sin hora
                     txtFechaLanzamiento.Text = disco.FechaLanzamiento.HasValue 
                         ? disco.FechaLanzamiento.Value.ToString("dd-MM-yyyy") : string.Empty;
 
