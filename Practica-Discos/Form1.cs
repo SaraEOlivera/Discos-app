@@ -15,12 +15,17 @@ namespace Practica_Discos
 {
     public partial class frmDiscos : Form
     {
+
+        //variables pagination
+        private int paginaActual = 1;
+        private int DiscosPorPagina = 6;
+        private List<Disco> listaDiscos;
+
         public frmDiscos()
         {
             InitializeComponent();
         }
 
-        private List<Disco> listaDiscos;
         private void Form1_Load(object sender, EventArgs e)
         {
             cargar();
@@ -48,10 +53,13 @@ namespace Practica_Discos
             try
             {
                 listaDiscos = datos.listarDiscos();
-                dgvDiscos.DataSource = listaDiscos;
+                cargarGrillaConPaginas();
+
+                if(listaDiscos.Count > 0)
+                    cargarImagen(listaDiscos[0].UrlImagenTapa);
+
                 ocultarColumnas();
 
-                cargarImagen(listaDiscos[0].UrlImagenTapa);
             }
             catch (Exception ex)
             {
@@ -278,7 +286,45 @@ namespace Practica_Discos
                 vista.ShowDialog();
             }
         }
+       
+        private void cargarGrillaConPaginas()
+        {
+            if (listaDiscos == null || listaDiscos.Count == 0)
+                return;
+
+            int inicio = (paginaActual - 1) * DiscosPorPagina;
+            int fin = Math.Min(inicio + DiscosPorPagina, listaDiscos.Count);
+
+            List<Disco> listaConPaginas = listaDiscos.GetRange(inicio, fin - inicio);
+
+            dgvDiscos.DataSource = null;
+            dgvDiscos.DataSource = listaConPaginas;
+
+            lblPagina.Text = $"Página {paginaActual} de {Math.Ceiling((double)listaDiscos.Count / DiscosPorPagina)}";
+
+            btnAnterior.Enabled = paginaActual > 1;
+            btnSiguiente.Enabled = fin < listaDiscos.Count;
+            ocultarColumnas();
+        }
+
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            if (paginaActual > 1) 
+            {
+                paginaActual --;
+                cargarGrillaConPaginas();
+            }
+        }
+
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            if (paginaActual * DiscosPorPagina < listaDiscos.Count) 
+            {
+                paginaActual++;
+                cargarGrillaConPaginas();
+            }
+        }
     }
 
- 
+
 }

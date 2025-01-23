@@ -100,7 +100,7 @@ namespace NegocioDiscos
 			AccesoDatos datos = new AccesoDatos();
 			try
 			{
-				datos.setearConsulta("Update DISCOS Set Titulo = @titulo, @fechaLanzamiento = FechaLanzamiento ,CantidadCanciones = @cantidadCanciones ,UrlImagenTapa = @urlImagenTapa, IdEstilo = @idEstilo, IdTipoEdicion = @idTipoEdicion where Id = @id");
+				datos.setearConsulta("Update DISCOS Set Titulo = @titulo, FechaLanzamiento = @fechaLanzamiento , CantidadCanciones = @cantidadCanciones ,UrlImagenTapa = @urlImagenTapa, IdEstilo = @idEstilo, IdTipoEdicion = @idTipoEdicion where Id = @id");
 
 				//parametros
 				datos.setearParametro("@titulo", disc.Titulo);

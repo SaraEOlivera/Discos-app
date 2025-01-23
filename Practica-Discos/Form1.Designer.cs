@@ -45,6 +45,9 @@
             this.txtFiltroAvanzado = new System.Windows.Forms.TextBox();
             this.btnFiltroAvanzado = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.lblPagina = new System.Windows.Forms.Label();
+            this.btnAnterior = new System.Windows.Forms.Button();
+            this.btnSiguiente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiscos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDiscos)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +56,7 @@
             // 
             this.dgvDiscos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDiscos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvDiscos.Location = new System.Drawing.Point(12, 86);
+            this.dgvDiscos.Location = new System.Drawing.Point(12, 47);
             this.dgvDiscos.MultiSelect = false;
             this.dgvDiscos.Name = "dgvDiscos";
             this.dgvDiscos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -64,7 +67,7 @@
             // 
             // pbxDiscos
             // 
-            this.pbxDiscos.Location = new System.Drawing.Point(515, 86);
+            this.pbxDiscos.Location = new System.Drawing.Point(515, 47);
             this.pbxDiscos.Name = "pbxDiscos";
             this.pbxDiscos.Size = new System.Drawing.Size(178, 178);
             this.pbxDiscos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -118,7 +121,7 @@
             // btnFiltroRapido
             // 
             this.btnFiltroRapido.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFiltroRapido.Location = new System.Drawing.Point(233, 53);
+            this.btnFiltroRapido.Location = new System.Drawing.Point(233, 14);
             this.btnFiltroRapido.Name = "btnFiltroRapido";
             this.btnFiltroRapido.Size = new System.Drawing.Size(75, 23);
             this.btnFiltroRapido.TabIndex = 6;
@@ -129,7 +132,7 @@
             // lblFiltroRapido
             // 
             this.lblFiltroRapido.AutoSize = true;
-            this.lblFiltroRapido.Location = new System.Drawing.Point(12, 58);
+            this.lblFiltroRapido.Location = new System.Drawing.Point(12, 19);
             this.lblFiltroRapido.Name = "lblFiltroRapido";
             this.lblFiltroRapido.Size = new System.Drawing.Size(66, 13);
             this.lblFiltroRapido.TabIndex = 7;
@@ -137,7 +140,7 @@
             // 
             // txtFiltroRapido
             // 
-            this.txtFiltroRapido.Location = new System.Drawing.Point(98, 53);
+            this.txtFiltroRapido.Location = new System.Drawing.Point(98, 14);
             this.txtFiltroRapido.Name = "txtFiltroRapido";
             this.txtFiltroRapido.Size = new System.Drawing.Size(129, 20);
             this.txtFiltroRapido.TabIndex = 8;
@@ -220,11 +223,45 @@
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
+            // lblPagina
+            // 
+            this.lblPagina.AutoSize = true;
+            this.lblPagina.Location = new System.Drawing.Point(233, 232);
+            this.lblPagina.Name = "lblPagina";
+            this.lblPagina.Size = new System.Drawing.Size(40, 13);
+            this.lblPagina.TabIndex = 17;
+            this.lblPagina.Text = "Página";
+            // 
+            // btnAnterior
+            // 
+            this.btnAnterior.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAnterior.Location = new System.Drawing.Point(15, 231);
+            this.btnAnterior.Name = "btnAnterior";
+            this.btnAnterior.Size = new System.Drawing.Size(75, 23);
+            this.btnAnterior.TabIndex = 18;
+            this.btnAnterior.Text = "An&terior";
+            this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
+            // 
+            // btnSiguiente
+            // 
+            this.btnSiguiente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSiguiente.Location = new System.Drawing.Point(420, 232);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(75, 23);
+            this.btnSiguiente.TabIndex = 19;
+            this.btnSiguiente.Text = "&Siguiente";
+            this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
+            // 
             // frmDiscos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 331);
+            this.Controls.Add(this.btnSiguiente);
+            this.Controls.Add(this.btnAnterior);
+            this.Controls.Add(this.lblPagina);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnFiltroAvanzado);
             this.Controls.Add(this.txtFiltroAvanzado);
@@ -277,6 +314,9 @@
         private System.Windows.Forms.TextBox txtFiltroAvanzado;
         private System.Windows.Forms.Button btnFiltroAvanzado;
         private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.Label lblPagina;
+        private System.Windows.Forms.Button btnAnterior;
+        private System.Windows.Forms.Button btnSiguiente;
     }
 }
 
