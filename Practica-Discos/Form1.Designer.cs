@@ -73,51 +73,56 @@
             // 
             // btnAgregar
             // 
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregar.Location = new System.Drawing.Point(12, 270);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(143, 23);
             this.btnAgregar.TabIndex = 2;
-            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.Text = "&Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
+            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnModificar.Location = new System.Drawing.Point(170, 270);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(95, 23);
             this.btnModificar.TabIndex = 3;
-            this.btnModificar.Text = "Modificar";
+            this.btnModificar.Text = "&Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminacionFisica
             // 
+            this.btnEliminacionFisica.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminacionFisica.Location = new System.Drawing.Point(271, 270);
             this.btnEliminacionFisica.Name = "btnEliminacionFisica";
             this.btnEliminacionFisica.Size = new System.Drawing.Size(101, 23);
             this.btnEliminacionFisica.TabIndex = 4;
-            this.btnEliminacionFisica.Text = "Eliminar Fisica";
+            this.btnEliminacionFisica.Text = "Eliminar &Fisica";
             this.btnEliminacionFisica.UseVisualStyleBackColor = true;
             this.btnEliminacionFisica.Click += new System.EventHandler(this.btnEliminacionFisica_Click);
             // 
             // btnEliminacionLogica
             // 
+            this.btnEliminacionLogica.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminacionLogica.Location = new System.Drawing.Point(378, 270);
             this.btnEliminacionLogica.Name = "btnEliminacionLogica";
             this.btnEliminacionLogica.Size = new System.Drawing.Size(101, 23);
             this.btnEliminacionLogica.TabIndex = 5;
-            this.btnEliminacionLogica.Text = "Eliminar Logica";
+            this.btnEliminacionLogica.Text = "Eliminar &Logica";
             this.btnEliminacionLogica.UseVisualStyleBackColor = true;
             this.btnEliminacionLogica.Click += new System.EventHandler(this.btnEliminacionLogica_Click);
             // 
             // btnFiltroRapido
             // 
+            this.btnFiltroRapido.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFiltroRapido.Location = new System.Drawing.Point(233, 53);
             this.btnFiltroRapido.Name = "btnFiltroRapido";
             this.btnFiltroRapido.Size = new System.Drawing.Size(75, 23);
             this.btnFiltroRapido.TabIndex = 6;
-            this.btnFiltroRapido.Text = "Buscar";
+            this.btnFiltroRapido.Text = "B&uscar";
             this.btnFiltroRapido.UseVisualStyleBackColor = true;
             this.btnFiltroRapido.Click += new System.EventHandler(this.btnFiltroRapido_Click);
             // 
@@ -195,21 +200,23 @@
             // 
             // btnFiltroAvanzado
             // 
+            this.btnFiltroAvanzado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFiltroAvanzado.Location = new System.Drawing.Point(515, 296);
             this.btnFiltroAvanzado.Name = "btnFiltroAvanzado";
             this.btnFiltroAvanzado.Size = new System.Drawing.Size(75, 23);
             this.btnFiltroAvanzado.TabIndex = 15;
-            this.btnFiltroAvanzado.Text = "Buscar";
+            this.btnFiltroAvanzado.Text = "&Buscar";
             this.btnFiltroAvanzado.UseVisualStyleBackColor = true;
             this.btnFiltroAvanzado.Click += new System.EventHandler(this.btnFiltroAvanzado_Click);
             // 
             // btnVolver
             // 
+            this.btnVolver.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVolver.Location = new System.Drawing.Point(618, 296);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(75, 23);
             this.btnVolver.TabIndex = 16;
-            this.btnVolver.Text = "Volver";
+            this.btnVolver.Text = "&Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
@@ -235,6 +242,11 @@
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.pbxDiscos);
             this.Controls.Add(this.dgvDiscos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(724, 370);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(724, 370);
             this.Name = "frmDiscos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Discos";

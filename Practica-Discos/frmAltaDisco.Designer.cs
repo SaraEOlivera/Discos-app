@@ -49,21 +49,23 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.Location = new System.Drawing.Point(164, 198);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(73, 23);
             this.btnCancelar.TabIndex = 7;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 
+            this.btnAceptar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAceptar.Location = new System.Drawing.Point(59, 198);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(72, 23);
             this.btnAceptar.TabIndex = 6;
-            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.Text = "&Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
@@ -163,6 +165,7 @@
             // 
             // btnAgregarImagen
             // 
+            this.btnAgregarImagen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregarImagen.Location = new System.Drawing.Point(255, 102);
             this.btnAgregarImagen.Name = "btnAgregarImagen";
             this.btnAgregarImagen.Size = new System.Drawing.Size(32, 23);
@@ -208,6 +211,10 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.btnCancelar);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(487, 262);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(487, 262);
             this.Name = "frmAltaDisco";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alta Discos";

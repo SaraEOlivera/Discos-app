@@ -158,11 +158,12 @@
             // 
             // btnVolverDetalle
             // 
+            this.btnVolverDetalle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVolverDetalle.Location = new System.Drawing.Point(380, 213);
             this.btnVolverDetalle.Name = "btnVolverDetalle";
             this.btnVolverDetalle.Size = new System.Drawing.Size(283, 23);
             this.btnVolverDetalle.TabIndex = 13;
-            this.btnVolverDetalle.Text = "Volver";
+            this.btnVolverDetalle.Text = "&Volver";
             this.btnVolverDetalle.UseVisualStyleBackColor = true;
             this.btnVolverDetalle.Click += new System.EventHandler(this.btnVolverDetalle_Click);
             // 
@@ -185,6 +186,10 @@
             this.Controls.Add(this.lblFechaDetalle);
             this.Controls.Add(this.txtTituloDetalle);
             this.Controls.Add(this.lblTituloDetalle);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(684, 286);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(684, 286);
             this.Name = "frmDetalle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vista Detallada";
