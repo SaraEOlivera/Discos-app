@@ -73,6 +73,8 @@ namespace Practica_Discos
             dgvDiscos.Columns["Id"].Visible = false;
             dgvDiscos.Columns["FechaLanzamiento"].Visible = false;
             dgvDiscos.Columns["Activo"].Visible = false;
+            dgvDiscos.Columns["Tipo"].Visible = false;
+
         }
 
         private void cargarImagen(string imagen) 
@@ -302,10 +304,10 @@ namespace Practica_Discos
 
             lblPagina.Text = $"Página {paginaActual} de {Math.Ceiling((double)listaDiscos.Count / DiscosPorPagina)}";
 
-            btnAnterior.Enabled = paginaActual > 1;
+            btnAnterior.Enabled = paginaActual > 1; //expresion booleana
             btnSiguiente.Enabled = fin < listaDiscos.Count;
             ocultarColumnas();
-        }
+        }   
 
         private void btnAnterior_Click(object sender, EventArgs e)
         {
