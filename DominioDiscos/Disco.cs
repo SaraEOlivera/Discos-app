@@ -26,6 +26,7 @@ namespace DominioDiscos
         [DisplayName("Fecha de Lanzamiento")]
         public DateTime? FechaLanzamiento { get; set; }
         public bool? Activo { get; set; }
+        public Bandas Bandas { get; set; }
 
     }   
 }

@@ -74,7 +74,6 @@ namespace Practica_Discos
             dgvDiscos.Columns["FechaLanzamiento"].Visible = false;
             dgvDiscos.Columns["Activo"].Visible = false;
             dgvDiscos.Columns["Tipo"].Visible = false;
-
         }
 
         private void cargarImagen(string imagen) 
