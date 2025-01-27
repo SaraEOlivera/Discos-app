@@ -300,6 +300,7 @@ namespace Practica_Discos
 
             dgvDiscos.DataSource = null;
             dgvDiscos.DataSource = listaConPaginas;
+            dgvDiscos.Columns["Bandas"].DisplayIndex = 0;
 
             lblPagina.Text = $"Página {paginaActual} de {Math.Ceiling((double)listaDiscos.Count / DiscosPorPagina)}";
 
