@@ -23,7 +23,8 @@ namespace NegocioDiscos
 			{
 				conexion.ConnectionString = "server = .\\SQLEXPRESS; database = DISCOS_DB; Integrated Security=true";
 				comando.CommandType = System.Data.CommandType.Text;
-				comando.CommandText = "select D.Id, Titulo, FechaLanzamiento ,CantidadCanciones, UrlImagenTapa, E.Descripcion as Estilo, T.Descripcion as Tipo, D.idEstilo, D.IdTipoEdicion, Activo from DISCOS D, ESTILOS E, TIPOSEDICION T where E.Id = D.IdEstilo and T.Id = D.IdTipoEdicion AND Activo = 1";
+				//comando.CommandText = "select D.Id, Titulo, FechaLanzamiento ,CantidadCanciones, UrlImagenTapa, E.Descripcion as Estilo, T.Descripcion as Tipo, D.idEstilo, D.IdTipoEdicion, Activo from DISCOS D, ESTILOS E, TIPOSEDICION T where E.Id = D.IdEstilo and T.Id = D.IdTipoEdicion AND Activo = 1";
+				comando.CommandText = "select D.Id, B.Nombre as Banda, Titulo,  FechaLanzamiento, CantidadCanciones,\r\nUrlImagenTapa, E.Descripcion as Estilo, T.Descripcion as Tipo, \r\nD.idEstilo, D.IdTipoEdicion, Activo \r\nfrom DISCOS D, Bandas B, ESTILOS E, TIPOSEDICION T where \r\nB.Id = D.IdBanda and \r\nE.Id = D.IdEstilo \r\nand T.Id = D.IdTipoEdicion AND Activo = 1";
 				comando.Connection = conexion;
 
 				conexion.Open();
@@ -33,6 +34,11 @@ namespace NegocioDiscos
 				{
 					Disco auxiliar = new Disco();
 					auxiliar.Id = (int)lector["Id"];
+
+					auxiliar.Bandas = new Bandas();
+					auxiliar.Bandas.Id = (int)(lector["Id"]);
+					auxiliar.Bandas.Nombre = (string)lector["Banda"];
+
 					auxiliar.Titulo = (string)lector["Titulo"];
 
 					if (lector["FechaLanzamiento"] is DBNull)
