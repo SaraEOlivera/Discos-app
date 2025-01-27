@@ -42,13 +42,15 @@
             this.lblActivoDetalle = new System.Windows.Forms.Label();
             this.pboImagenDetalle = new System.Windows.Forms.PictureBox();
             this.btnVolverDetalle = new System.Windows.Forms.Button();
+            this.lblBandaDetalle = new System.Windows.Forms.Label();
+            this.txtBandaDetalle = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pboImagenDetalle)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTituloDetalle
             // 
             this.lblTituloDetalle.AutoSize = true;
-            this.lblTituloDetalle.Location = new System.Drawing.Point(60, 13);
+            this.lblTituloDetalle.Location = new System.Drawing.Point(61, 44);
             this.lblTituloDetalle.Name = "lblTituloDetalle";
             this.lblTituloDetalle.Size = new System.Drawing.Size(33, 13);
             this.lblTituloDetalle.TabIndex = 0;
@@ -56,7 +58,7 @@
             // 
             // txtTituloDetalle
             // 
-            this.txtTituloDetalle.Location = new System.Drawing.Point(113, 13);
+            this.txtTituloDetalle.Location = new System.Drawing.Point(113, 41);
             this.txtTituloDetalle.Name = "txtTituloDetalle";
             this.txtTituloDetalle.ReadOnly = true;
             this.txtTituloDetalle.Size = new System.Drawing.Size(233, 20);
@@ -64,7 +66,7 @@
             // 
             // txtLanzamientoDetalle
             // 
-            this.txtLanzamientoDetalle.Location = new System.Drawing.Point(113, 49);
+            this.txtLanzamientoDetalle.Location = new System.Drawing.Point(113, 76);
             this.txtLanzamientoDetalle.Name = "txtLanzamientoDetalle";
             this.txtLanzamientoDetalle.ReadOnly = true;
             this.txtLanzamientoDetalle.Size = new System.Drawing.Size(233, 20);
@@ -73,7 +75,7 @@
             // lblFechaDetalle
             // 
             this.lblFechaDetalle.AutoSize = true;
-            this.lblFechaDetalle.Location = new System.Drawing.Point(23, 49);
+            this.lblFechaDetalle.Location = new System.Drawing.Point(23, 83);
             this.lblFechaDetalle.Name = "lblFechaDetalle";
             this.lblFechaDetalle.Size = new System.Drawing.Size(70, 13);
             this.lblFechaDetalle.TabIndex = 2;
@@ -81,7 +83,7 @@
             // 
             // txtCantCancionesDetalle
             // 
-            this.txtCantCancionesDetalle.Location = new System.Drawing.Point(113, 87);
+            this.txtCantCancionesDetalle.Location = new System.Drawing.Point(113, 111);
             this.txtCantCancionesDetalle.Name = "txtCantCancionesDetalle";
             this.txtCantCancionesDetalle.ReadOnly = true;
             this.txtCantCancionesDetalle.Size = new System.Drawing.Size(233, 20);
@@ -90,7 +92,7 @@
             // lblCancionesDetalle
             // 
             this.lblCancionesDetalle.AutoSize = true;
-            this.lblCancionesDetalle.Location = new System.Drawing.Point(8, 87);
+            this.lblCancionesDetalle.Location = new System.Drawing.Point(8, 118);
             this.lblCancionesDetalle.Name = "lblCancionesDetalle";
             this.lblCancionesDetalle.Size = new System.Drawing.Size(85, 13);
             this.lblCancionesDetalle.TabIndex = 4;
@@ -98,7 +100,7 @@
             // 
             // txtEstiloDetalle
             // 
-            this.txtEstiloDetalle.Location = new System.Drawing.Point(113, 127);
+            this.txtEstiloDetalle.Location = new System.Drawing.Point(113, 149);
             this.txtEstiloDetalle.Name = "txtEstiloDetalle";
             this.txtEstiloDetalle.ReadOnly = true;
             this.txtEstiloDetalle.Size = new System.Drawing.Size(233, 20);
@@ -107,7 +109,7 @@
             // lblEstiloDetalle
             // 
             this.lblEstiloDetalle.AutoSize = true;
-            this.lblEstiloDetalle.Location = new System.Drawing.Point(61, 130);
+            this.lblEstiloDetalle.Location = new System.Drawing.Point(61, 156);
             this.lblEstiloDetalle.Name = "lblEstiloDetalle";
             this.lblEstiloDetalle.Size = new System.Drawing.Size(32, 13);
             this.lblEstiloDetalle.TabIndex = 6;
@@ -115,7 +117,7 @@
             // 
             // txtTipoEdicionDetalle
             // 
-            this.txtTipoEdicionDetalle.Location = new System.Drawing.Point(113, 171);
+            this.txtTipoEdicionDetalle.Location = new System.Drawing.Point(113, 184);
             this.txtTipoEdicionDetalle.Name = "txtTipoEdicionDetalle";
             this.txtTipoEdicionDetalle.ReadOnly = true;
             this.txtTipoEdicionDetalle.Size = new System.Drawing.Size(233, 20);
@@ -124,7 +126,7 @@
             // lblTipoEdicionDetalle
             // 
             this.lblTipoEdicionDetalle.AutoSize = true;
-            this.lblTipoEdicionDetalle.Location = new System.Drawing.Point(51, 171);
+            this.lblTipoEdicionDetalle.Location = new System.Drawing.Point(51, 184);
             this.lblTipoEdicionDetalle.Name = "lblTipoEdicionDetalle";
             this.lblTipoEdicionDetalle.Size = new System.Drawing.Size(42, 13);
             this.lblTipoEdicionDetalle.TabIndex = 8;
@@ -167,11 +169,30 @@
             this.btnVolverDetalle.UseVisualStyleBackColor = true;
             this.btnVolverDetalle.Click += new System.EventHandler(this.btnVolverDetalle_Click);
             // 
+            // lblBandaDetalle
+            // 
+            this.lblBandaDetalle.AutoSize = true;
+            this.lblBandaDetalle.Location = new System.Drawing.Point(54, 13);
+            this.lblBandaDetalle.Name = "lblBandaDetalle";
+            this.lblBandaDetalle.Size = new System.Drawing.Size(38, 13);
+            this.lblBandaDetalle.TabIndex = 14;
+            this.lblBandaDetalle.Text = "Banda";
+            // 
+            // txtBandaDetalle
+            // 
+            this.txtBandaDetalle.Location = new System.Drawing.Point(113, 10);
+            this.txtBandaDetalle.Name = "txtBandaDetalle";
+            this.txtBandaDetalle.ReadOnly = true;
+            this.txtBandaDetalle.Size = new System.Drawing.Size(233, 20);
+            this.txtBandaDetalle.TabIndex = 15;
+            // 
             // frmDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 247);
+            this.Controls.Add(this.txtBandaDetalle);
+            this.Controls.Add(this.lblBandaDetalle);
             this.Controls.Add(this.btnVolverDetalle);
             this.Controls.Add(this.pboImagenDetalle);
             this.Controls.Add(this.txtActivoDetalle);
@@ -216,5 +237,7 @@
         private System.Windows.Forms.Label lblActivoDetalle;
         private System.Windows.Forms.PictureBox pboImagenDetalle;
         private System.Windows.Forms.Button btnVolverDetalle;
+        private System.Windows.Forms.Label lblBandaDetalle;
+        private System.Windows.Forms.TextBox txtBandaDetalle;
     }
 }

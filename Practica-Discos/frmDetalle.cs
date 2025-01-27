@@ -29,6 +29,8 @@ namespace Practica_Discos
 
         private void frmDetalle_Load(object sender, EventArgs e)
         {
+            txtBandaDetalle.Text = seleccionado.Bandas.Nombre;
+
             txtTituloDetalle.Text = seleccionado.Titulo;
 
             txtLanzamientoDetalle.Text = seleccionado.FechaLanzamiento.HasValue 
