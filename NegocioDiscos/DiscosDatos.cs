@@ -166,7 +166,8 @@ namespace NegocioDiscos
 			AccesoDatos datos = new AccesoDatos();
 			try
 			{
-				string consulta = "select D.Id, Titulo, CantidadCanciones, UrlImagenTapa, E.Descripcion as Estilo, T.Descripcion as Tipo, D.idEstilo, D.IdTipoEdicion from DISCOS D, ESTILOS E, TIPOSEDICION T where E.Id = D.IdEstilo and T.Id = D.IdTipoEdicion AND Activo = 1 AND ";
+				//string consulta = "select D.Id, Titulo, CantidadCanciones, UrlImagenTapa, E.Descripcion as Estilo, T.Descripcion as Tipo, D.idEstilo, D.IdTipoEdicion from DISCOS D, ESTILOS E, TIPOSEDICION T where E.Id = D.IdEstilo and T.Id = D.IdTipoEdicion AND Activo = 1 AND ";
+				string consulta = "select D.Id, B.Nombre as Banda, Titulo,  FechaLanzamiento, CantidadCanciones, UrlImagenTapa, E.Descripcion as Estilo, T.Descripcion as Tipo, D.idEstilo, D.IdTipoEdicion, Activo from DISCOS D, Bandas B, ESTILOS E, TIPOSEDICION T where B.Id = D.IdBanda and E.Id = D.IdEstilo and T.Id = D.IdTipoEdicion AND Activo = 1 AND ";
 				if (campo == "Titulo")
 				{
 					switch (criterio)
@@ -181,22 +182,22 @@ namespace NegocioDiscos
 							consulta += "Titulo like '%" + filtro + "%' ";
 							break;
 					}
-				}
-				else if (campo == "Cant. de Canciones")
+				} 
+				else if (campo == "Banda")
 				{
 					switch (criterio)
 					{
-						case "Mayor a":
-							consulta += "CantidadCanciones >" + filtro;
-							break;
-						case "Menor a":
-							consulta += "CantidadCanciones <" + filtro;
-							break;
-						default:
-							consulta += "CantidadCanciones =" + filtro;
-							break;
+                        case "Comienza con":
+                            consulta += "B.Nombre like ' " + filtro + "%' ";
+                            break;
+                        case "Termina con":
+                            consulta += "B.Nombre like ' %" + filtro + " ' ";
+                            break;
+                        default:
+                            consulta += "B.Nombre like '%" + filtro + "%' ";
+                            break;
 
-					}
+                    }
 				}
 				else 
 				{
@@ -221,6 +222,11 @@ namespace NegocioDiscos
                 {
                     Disco auxiliar = new Disco();
                     auxiliar.Id = (int)datos.Lector["Id"];
+
+					auxiliar.Bandas = new Bandas();
+					auxiliar.Bandas.Id = (int)datos.Lector["Id"];
+					auxiliar.Bandas.Nombre = (string)datos.Lector["Banda"];
+
                     auxiliar.Titulo = (string)datos.Lector["Titulo"];
                     auxiliar.CantidadCanciones = (int)datos.Lector["CantidadCanciones"];
 

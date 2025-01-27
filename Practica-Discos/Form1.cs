@@ -29,8 +29,8 @@ namespace Practica_Discos
         private void Form1_Load(object sender, EventArgs e)
         {
             cargar();
+            cboCampo.Items.Add("Banda");
             cboCampo.Items.Add("Titulo");
-            cboCampo.Items.Add("Cant. de Canciones");
             cboCampo.Items.Add("Estilo");
             habilitarBotones();
         }
@@ -204,23 +204,13 @@ namespace Practica_Discos
         {
             if (cboCampo.SelectedItem != null)
             {
-                string opcion = cboCampo.SelectedItem.ToString();
-                if (opcion == "Cant. de Canciones")
-                {
-                    cboCriterio.Items.Clear();
-                    cboCriterio.Items.Add("Mayor a");
-                    cboCriterio.Items.Add("Menor a");
-                    cboCriterio.Items.Add("Igual a");
-                }
-                else
-                {
-                    cboCriterio.Items.Clear();
-                    cboCriterio.Items.Add("Comienza con ");
-                    cboCriterio.Items.Add("Termina con ");
-                    cboCriterio.Items.Add("Contiene ");
-                }
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Comienza con ");
+                cboCriterio.Items.Add("Termina con ");
+                cboCriterio.Items.Add("Contiene ");
+
             }
-            else
+            else 
             {
                 cboCriterio.Items.Clear();
             }
