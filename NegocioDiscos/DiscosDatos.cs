@@ -76,39 +76,92 @@ namespace NegocioDiscos
 
 		public void agregar(Disco nuevo) 
 		{
-			AccesoDatos datosDeAcceso = new AccesoDatos();
-			try
-			{
-                //datosDeAcceso.setearConsulta("INSERT INTO DISCOS (Titulo, FechaLanzamiento ,CantidadCanciones, Activo, IdEstilo, IdTipoEdicion, UrlImagenTapa) VALUES ('" + nuevo.Titulo + "', " + nuevo.CantidadCanciones + ", " + " 1, " + "@IdEstilo, " + "@IdTipoEdicion, " + "@UrlImagenTapa)");
-                datosDeAcceso.setearConsulta("INSERT INTO DISCOS (Titulo, FechaLanzamiento, CantidadCanciones, Activo, IdEstilo, IdTipoEdicion, UrlImagenTapa) VALUES (@Titulo,@FechaLanzamiento, @CantidadCanciones,  1, @IdEstilo, @IdTipoEdicion, @UrlImagenTapa)");
+            if (nuevo.Bandas == null)
+                throw new ArgumentNullException(nameof(nuevo.Bandas), "El objeto Bandas en Disco es nulo.");
 
-				datosDeAcceso.setearParametro("@Titulo", nuevo.Titulo);
-				datosDeAcceso.setearParametro("@FechaLanzamiento", nuevo.FechaLanzamiento);
-				datosDeAcceso.setearParametro("@CantidadCanciones", nuevo.CantidadCanciones);
-                datosDeAcceso.setearParametro("@IdEstilo", nuevo.Estilo.Id);
-				datosDeAcceso.setearParametro("@IdTipoEdicion", nuevo.Tipo.Id);
-				datosDeAcceso.setearParametro("@UrlImagenTapa", nuevo.UrlImagenTapa);
-                datosDeAcceso.ejecutarAccion();
-			}
-			catch (Exception)
+			using (AccesoDatos datosDeAcceso = new AccesoDatos()) 
 			{
-				throw;
-			}
-			finally 
-			{
-				datosDeAcceso.cerrarConexion();
-			}
-		}
+                try
+                {
+                    int idBanda = -1;
+
+                    //Verificar si la banda ya existe para asignar el mismo id:
+                    datosDeAcceso.setearConsulta("Select Id from Bandas Where Nombre = @NombreBanda");
+                    datosDeAcceso.setearParametro("@NombreBanda", nuevo.Bandas.Nombre);
+                    datosDeAcceso.ejecutarConsulta();
+
+                    //Si ya existe, obtener el ID:
+                    if (datosDeAcceso.Lector.Read())
+                    {
+                        idBanda = (int)datosDeAcceso.Lector["Id"];
+                    }
+                    else //Si no existe, insertar una nueva banda y obtener el id
+                    {
+                        datosDeAcceso.cerrarConexion();
+
+						//Limpiar parametros
+						datosDeAcceso.limpiarParametros();
+
+                        datosDeAcceso.setearConsulta(@"
+                    INSERT INTO Bandas (Nombre) VALUES (@NombreBanda);
+                    SELECT SCOPE_IDENTITY();");
+
+                        datosDeAcceso.setearParametro("@NombreBanda", nuevo.Bandas.Nombre);
+
+                        idBanda = Convert.ToInt32(datosDeAcceso.ejecutarEscalar());
+
+                        // datosDeAcceso.ejecutarConsulta();
+
+                        //obtener Id recien generado
+                        //datosDeAcceso2.cerrarConexion();
+                        //datosDeAcceso2.setearConsulta("Select Id from Bandas Where Nombre = @NombreBanda");
+                        //datosDeAcceso2.setearParametro("@NombreBanda", nombreBanda);
+                        //datosDeAcceso2.ejecutarConsulta(); //consulta porque es select
+
+                    }
+
+                    datosDeAcceso.cerrarConexion();
+
+                    //	AccesoDatos datosDeAcceso3 = new AccesoDatos();
+                    //datosDeAcceso.setearConsulta("Insert into Discos (IdBanda, Titulo, FechaLanzamiento, CantidadCanciones, Activo, IdEstilo, IdTipoEdicion, UrlImagenTapa) Values(@IdBanda, @Titulo, @FechaLanzamiento, @CantidadCanciones, 1, @IdEstilo, @IdTipoEdicion, @UrlImagenTapa);");
+
+                    datosDeAcceso.setearConsulta(@"
+                INSERT INTO Discos (IdBanda, Titulo, FechaLanzamiento, CantidadCanciones, Activo, IdEstilo, IdTipoEdicion, UrlImagenTapa) 
+                VALUES (@IdBanda, @Titulo, @FechaLanzamiento, @CantidadCanciones, 1, @IdEstilo, @IdTipoEdicion, @UrlImagenTapa);");
+
+                    datosDeAcceso.setearParametro("@IdBanda", idBanda);
+                    datosDeAcceso.setearParametro("@Titulo", nuevo.Titulo);
+                    datosDeAcceso.setearParametro("@FechaLanzamiento", nuevo.FechaLanzamiento);
+                    datosDeAcceso.setearParametro("@CantidadCanciones", nuevo.CantidadCanciones);
+                    datosDeAcceso.setearParametro("@IdEstilo", nuevo.Estilo.Id);
+                    datosDeAcceso.setearParametro("@IdTipoEdicion", nuevo.Tipo.Id);
+                    datosDeAcceso.setearParametro("@UrlImagenTapa", nuevo.UrlImagenTapa);
+                    datosDeAcceso.ejecutarAccion();
+
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                //finally
+                //{
+                //	datosDeAcceso.cerrarConexion();
+                //}
+            }
+
+
+        }
 
 		public void modificar(Disco disc)
 		{
 			AccesoDatos datos = new AccesoDatos();
 			try
 			{
-				datos.setearConsulta("Update DISCOS Set Titulo = @titulo, FechaLanzamiento = @fechaLanzamiento , CantidadCanciones = @cantidadCanciones ,UrlImagenTapa = @urlImagenTapa, IdEstilo = @idEstilo, IdTipoEdicion = @idTipoEdicion where Id = @id");
+				datos.setearConsulta("Update DISCOS Set IdBanda = @idBanda, Titulo = @titulo, FechaLanzamiento = @fechaLanzamiento , CantidadCanciones = @cantidadCanciones ,UrlImagenTapa = @urlImagenTapa, IdEstilo = @idEstilo, IdTipoEdicion = @idTipoEdicion where Id = @id");
 
-				//parametros
-				datos.setearParametro("@titulo", disc.Titulo);
+                //parametros
+                datos.setearParametro("@idBanda", disc.Bandas.Id);
+                datos.setearParametro("@titulo", disc.Titulo);
 				datos.setearParametro("@fechaLanzamiento", disc.FechaLanzamiento);
 				datos.setearParametro("@cantidadCanciones", disc.CantidadCanciones);
 				datos.setearParametro("@urlImagenTapa", disc.UrlImagenTapa);

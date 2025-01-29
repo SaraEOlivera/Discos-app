@@ -30,5 +30,10 @@ namespace DominioDiscos
         [DisplayName("Banda")]
         public Bandas Bandas { get; set; }
 
+        public Disco() 
+        {
+            Bandas = new Bandas();
+        }
+
     }   
 }

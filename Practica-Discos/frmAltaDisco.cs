@@ -166,6 +166,9 @@ namespace Practica_Discos
                 disco.Estilo = (Estilo)cboEstilo.SelectedItem;
                 disco.Tipo = (Tipo)cboTipoEdicion.SelectedItem;
 
+                disco.Bandas = new Bandas();
+                disco.Bandas.Nombre = string.IsNullOrEmpty(txtBanda.Text) ? "Nombre de la banda" : txtBanda.Text;   
+
                 if (disco.Id != 0)
                 {
                     //modificar Disco a la BD

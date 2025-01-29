@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace NegocioDiscos
 {
-    public class AccesoDatos
+    public class AccesoDatos : IDisposable
     {
         //Atributos para hacer la lectura
         private SqlConnection conexion;
@@ -71,6 +71,35 @@ namespace NegocioDiscos
             if (lector != null)
                 lector.Close();
             conexion.Close();
+        }
+
+        public void Dispose() 
+        {
+            cerrarConexion();
+            if (comando != null)
+                comando.Dispose();
+            if (conexion != null)
+                conexion.Dispose();
+        }
+
+        public void limpiarParametros() 
+        {
+            comando.Parameters.Clear();
+        }
+
+        public object ejecutarEscalar() 
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                return comando.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
  
             
