@@ -98,22 +98,16 @@ namespace NegocioDiscos
                     else //Si no existe, insertar una nueva banda y obtener el id
                     {
                         datosDeAcceso.cerrarConexion();
-
-						//Limpiar parametros
 						datosDeAcceso.limpiarParametros();
 
-                        datosDeAcceso.setearConsulta(@"
-                    INSERT INTO Bandas (Nombre) VALUES (@NombreBanda);
-                    SELECT SCOPE_IDENTITY();");
-
+                        datosDeAcceso.setearConsulta(@"INSERT INTO Bandas (Nombre) VALUES (@NombreBanda); SELECT SCOPE_IDENTITY();");
                         datosDeAcceso.setearParametro("@NombreBanda", nuevo.Bandas.Nombre);
-
                         idBanda = Convert.ToInt32(datosDeAcceso.ejecutarEscalar());
                     }
 
                     datosDeAcceso.cerrarConexion();
 
-
+					//Ahora se inserta el disco nuevo 
                     datosDeAcceso.setearConsulta(@"
                 INSERT INTO Discos (IdBanda, Titulo, FechaLanzamiento, CantidadCanciones, Activo, IdEstilo, IdTipoEdicion, UrlImagenTapa) 
                 VALUES (@IdBanda, @Titulo, @FechaLanzamiento, @CantidadCanciones, 1, @IdEstilo, @IdTipoEdicion, @UrlImagenTapa);");
@@ -132,43 +126,64 @@ namespace NegocioDiscos
                 {
                     throw ex;
                 }
-                //finally
-                //{
-                //	datosDeAcceso.cerrarConexion();
-                //}
             }
-
-
         }
 
 		public void modificar(Disco disc)
 		{
-			AccesoDatos datos = new AccesoDatos();
-			try
+			using (AccesoDatos datos = new AccesoDatos()) 
 			{
-				datos.setearConsulta("Update DISCOS Set IdBanda = @idBanda, Titulo = @titulo, FechaLanzamiento = @fechaLanzamiento , CantidadCanciones = @cantidadCanciones ,UrlImagenTapa = @urlImagenTapa, IdEstilo = @idEstilo, IdTipoEdicion = @idTipoEdicion where Id = @id");
+                try
+                {
+                    int idBanda = -1;
 
-                //parametros
-                datos.setearParametro("@idBanda", disc.Bandas.Id);
-                datos.setearParametro("@titulo", disc.Titulo);
-				datos.setearParametro("@fechaLanzamiento", disc.FechaLanzamiento);
-				datos.setearParametro("@cantidadCanciones", disc.CantidadCanciones);
-				datos.setearParametro("@urlImagenTapa", disc.UrlImagenTapa);
-				datos.setearParametro("@idEstilo", disc.Estilo.Id);
-				datos.setearParametro("@idTipoEdicion", disc.Tipo.Id);
-				datos.setearParametro("@id", disc.Id);
+                    //Verificar si la banda ya existe para asignar el mismo id:
+                    datos.setearConsulta("Select Id from Bandas Where Nombre = @NombreBanda");
+                    datos.setearParametro("@NombreBanda", disc.Bandas.Nombre);
+                    datos.ejecutarConsulta();
 
-				datos.ejecutarAccion();
+                    //Si ya existe, obtener el ID:
+                    if (datos.Lector.Read())
+                    {
+                        idBanda = (int)datos.Lector["Id"];
+                    }
+                    else //Si no existe, insertar una nueva banda y obtener el id
+                    {
+                        datos.cerrarConexion();
+                        datos.limpiarParametros();
 
-			}
-			catch (Exception ex)
-			{
-				throw ex;
-			}
-			finally 
-			{
-				datos.cerrarConexion();
-			}
+                        datos.setearConsulta(@"INSERT INTO Bandas (Nombre) VALUES (@NombreBanda); SELECT SCOPE_IDENTITY();");
+                        datos.setearParametro("@NombreBanda", disc.Bandas.Nombre);
+                        idBanda = Convert.ToInt32(datos.ejecutarEscalar());
+                    }
+
+                    datos.cerrarConexion();
+                    datos.setearConsulta("Update DISCOS Set IdBanda = @idBanda, Titulo = @titulo, FechaLanzamiento = @fechaLanzamiento , CantidadCanciones = @cantidadCanciones ,UrlImagenTapa = @urlImagenTapa, IdEstilo = @idEstilo, IdTipoEdicion = @idTipoEdicion where Id = @id");
+
+                    //parametros
+                    datos.setearParametro("@idBanda", idBanda);
+                    datos.setearParametro("@titulo", disc.Titulo);
+                    datos.setearParametro("@fechaLanzamiento", disc.FechaLanzamiento);
+                    datos.setearParametro("@cantidadCanciones", disc.CantidadCanciones);
+                    datos.setearParametro("@urlImagenTapa", disc.UrlImagenTapa);
+                    datos.setearParametro("@idEstilo", disc.Estilo.Id);
+                    datos.setearParametro("@idTipoEdicion", disc.Tipo.Id);
+                    datos.setearParametro("@id", disc.Id);
+
+                    datos.ejecutarAccion();
+
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    datos.cerrarConexion();
+                }
+            }
+
+
 		}
 
 		public void eliminar(int id) 

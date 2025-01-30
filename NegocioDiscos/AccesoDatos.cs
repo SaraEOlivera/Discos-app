@@ -73,6 +73,7 @@ namespace NegocioDiscos
             conexion.Close();
         }
 
+        //liberar recursos
         public void Dispose() 
         {
             cerrarConexion();
@@ -97,7 +98,6 @@ namespace NegocioDiscos
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }

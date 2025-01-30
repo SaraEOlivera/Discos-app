@@ -173,7 +173,8 @@ namespace Practica_Discos
                 disco.Tipo = (Tipo)cboTipoEdicion.SelectedItem;
 
                 disco.Bandas = new Bandas();
-                disco.Bandas.Nombre = string.IsNullOrEmpty(txtBanda.Text) ? "Nombre de la banda" : txtBanda.Text;   
+                disco.Bandas.Nombre = txtBanda.Text;
+                //disco.Bandas.Nombre = string.IsNullOrEmpty(txtBanda.Text) ? "Nombre de la banda" : txtBanda.Text;   
 
                 if (disco.Id != 0)
                 {
