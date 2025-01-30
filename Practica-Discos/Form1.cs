@@ -176,7 +176,7 @@ namespace Practica_Discos
             List<Disco> listaFiltrada;
             string filtro = txtFiltroRapido.Text;
             if (filtro.Length >= 3)
-                listaFiltrada = listaDiscos.FindAll(x => x.Titulo.ToUpper().Contains(filtro.ToUpper()) || x.Estilo.Descripcion.ToUpper().Contains(filtro.ToUpper()));
+                listaFiltrada = listaDiscos.FindAll(x => x.Titulo.ToUpper().Contains(filtro.ToUpper()) || x.Estilo.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Bandas.Nombre.ToUpper().Contains(filtro.ToUpper()));
             else
                 listaFiltrada = listaDiscos;
 
