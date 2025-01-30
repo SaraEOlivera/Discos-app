@@ -83,29 +83,7 @@ namespace NegocioDiscos
 			{
                 try
                 {
-                    int idBanda = -1;
-
-                    //Verificar si la banda ya existe para asignar el mismo id:
-                    datosDeAcceso.setearConsulta("Select Id from Bandas Where Nombre = @NombreBanda");
-                    datosDeAcceso.setearParametro("@NombreBanda", nuevo.Bandas.Nombre);
-                    datosDeAcceso.ejecutarConsulta();
-
-                    //Si ya existe, obtener el ID:
-                    if (datosDeAcceso.Lector.Read())
-                    {
-                        idBanda = (int)datosDeAcceso.Lector["Id"];
-                    }
-                    else //Si no existe, insertar una nueva banda y obtener el id
-                    {
-                        datosDeAcceso.cerrarConexion();
-						datosDeAcceso.limpiarParametros();
-
-                        datosDeAcceso.setearConsulta(@"INSERT INTO Bandas (Nombre) VALUES (@NombreBanda); SELECT SCOPE_IDENTITY();");
-                        datosDeAcceso.setearParametro("@NombreBanda", nuevo.Bandas.Nombre);
-                        idBanda = Convert.ToInt32(datosDeAcceso.ejecutarEscalar());
-                    }
-
-                    datosDeAcceso.cerrarConexion();
+					int idBanda = datosDeAcceso.obtenerIdBanda(nuevo.Bandas.Nombre);
 
 					//Ahora se inserta el disco nuevo 
                     datosDeAcceso.setearConsulta(@"
@@ -135,29 +113,8 @@ namespace NegocioDiscos
 			{
                 try
                 {
-                    int idBanda = -1;
+                    int idBanda = datos.obtenerIdBanda(disc.Bandas.Nombre);
 
-                    //Verificar si la banda ya existe para asignar el mismo id:
-                    datos.setearConsulta("Select Id from Bandas Where Nombre = @NombreBanda");
-                    datos.setearParametro("@NombreBanda", disc.Bandas.Nombre);
-                    datos.ejecutarConsulta();
-
-                    //Si ya existe, obtener el ID:
-                    if (datos.Lector.Read())
-                    {
-                        idBanda = (int)datos.Lector["Id"];
-                    }
-                    else //Si no existe, insertar una nueva banda y obtener el id
-                    {
-                        datos.cerrarConexion();
-                        datos.limpiarParametros();
-
-                        datos.setearConsulta(@"INSERT INTO Bandas (Nombre) VALUES (@NombreBanda); SELECT SCOPE_IDENTITY();");
-                        datos.setearParametro("@NombreBanda", disc.Bandas.Nombre);
-                        idBanda = Convert.ToInt32(datos.ejecutarEscalar());
-                    }
-
-                    datos.cerrarConexion();
                     datos.setearConsulta("Update DISCOS Set IdBanda = @idBanda, Titulo = @titulo, FechaLanzamiento = @fechaLanzamiento , CantidadCanciones = @cantidadCanciones ,UrlImagenTapa = @urlImagenTapa, IdEstilo = @idEstilo, IdTipoEdicion = @idTipoEdicion where Id = @id");
 
                     //parametros
@@ -177,13 +134,7 @@ namespace NegocioDiscos
                 {
                     throw ex;
                 }
-                finally
-                {
-                    datos.cerrarConexion();
-                }
             }
-
-
 		}
 
 		public void eliminar(int id) 

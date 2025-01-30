@@ -15,26 +15,26 @@ namespace NegocioDiscos
         private SqlDataReader lector;
 
         //leer Lector desde el exterior
-        public SqlDataReader Lector 
+        public SqlDataReader Lector
         {
             get { return lector; }
         }
 
         //Constructor
-        public AccesoDatos() 
+        public AccesoDatos()
         {
             conexion = new SqlConnection("server = .\\SQLEXPRESS; database = DISCOS_DB; Integrated Security=true");
             comando = new SqlCommand();
         }
 
-        public void setearConsulta(string consulta) 
+        public void setearConsulta(string consulta)
         {
             comando.CommandType = System.Data.CommandType.Text;
             comando.CommandText = consulta;
         }
 
-        public void ejecutarConsulta() 
-        { 
+        public void ejecutarConsulta()
+        {
             comando.Connection = conexion;
             try
             {
@@ -47,7 +47,7 @@ namespace NegocioDiscos
             }
         }
 
-        public void ejecutarAccion() 
+        public void ejecutarAccion()
         {
             comando.Connection = conexion;
             try
@@ -61,12 +61,12 @@ namespace NegocioDiscos
             }
         }
 
-        public void setearParametro(string nombre, object valor) 
+        public void setearParametro(string nombre, object valor)
         {
             comando.Parameters.AddWithValue(nombre, valor);
         }
 
-        public void cerrarConexion() 
+        public void cerrarConexion()
         {
             if (lector != null)
                 lector.Close();
@@ -74,7 +74,7 @@ namespace NegocioDiscos
         }
 
         //liberar recursos
-        public void Dispose() 
+        public void Dispose()
         {
             cerrarConexion();
             if (comando != null)
@@ -83,12 +83,12 @@ namespace NegocioDiscos
                 conexion.Dispose();
         }
 
-        public void limpiarParametros() 
+        public void limpiarParametros()
         {
             comando.Parameters.Clear();
         }
 
-        public object ejecutarEscalar() 
+        public object ejecutarEscalar()
         {
             comando.Connection = conexion;
             try
@@ -101,10 +101,34 @@ namespace NegocioDiscos
                 throw ex;
             }
         }
- 
-            
 
+        public int obtenerIdBanda(string nombreBanda)
+        {
+            using (AccesoDatos datosDeAcceso = new AccesoDatos())
+            {
+                int idBanda = -1;
 
+                //Verificar si la banda ya existe para asignar el mismo id:
+                datosDeAcceso.setearConsulta("Select Id from Bandas Where Nombre = @NombreBanda");
+                datosDeAcceso.setearParametro("@NombreBanda", nombreBanda);
+                datosDeAcceso.ejecutarConsulta();
+
+                if (datosDeAcceso.Lector.Read())
+                {
+                    idBanda = (int)datosDeAcceso.Lector["Id"];
+                }
+                else //Si no existe, insertar una nueva banda y obtener el id
+                {
+                    datosDeAcceso.cerrarConexion();
+                    datosDeAcceso.limpiarParametros();
+
+                    datosDeAcceso.setearConsulta(@"INSERT INTO Bandas (Nombre) VALUES (@NombreBanda); SELECT SCOPE_IDENTITY();");
+                    datosDeAcceso.setearParametro("@NombreBanda", nombreBanda);
+                    idBanda = Convert.ToInt32(datosDeAcceso.ejecutarEscalar());
+                }
+                return idBanda;
+            }
+        }
 
 
     }
