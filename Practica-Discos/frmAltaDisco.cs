@@ -215,6 +215,7 @@ namespace Practica_Discos
 
         private void frmAltaDisco_Load(object sender, EventArgs e)
         {
+            Bandas bandas = new Bandas();
             EstiloNegocio estiloNegocio = new EstiloNegocio();
             TipoEdicionNegocio tipoENegocio = new TipoEdicionNegocio();
             try
@@ -229,6 +230,7 @@ namespace Practica_Discos
 
                 if (disco != null)
                 {
+                    txtBanda.Text = disco.Bandas.Nombre;
                     txtTitulo.Text = disco.Titulo;
                     txtCanciones.Text = disco.CantidadCanciones.ToString();
                     //mostrar la fecha sin hora
