@@ -43,6 +43,12 @@ namespace Practica_Discos
         {
             DateTime lanzamiento;
 
+            if (string.IsNullOrEmpty(txtBanda.Text))
+            {
+                MessageBox.Show("El campo Banda es obligatorio");
+                return true;
+            }
+
             if (string.IsNullOrEmpty(txtTitulo.Text)) 
             {
                 MessageBox.Show("El campo Título es obligatorio");

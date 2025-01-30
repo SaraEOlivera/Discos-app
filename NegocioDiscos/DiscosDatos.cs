@@ -109,21 +109,10 @@ namespace NegocioDiscos
                         datosDeAcceso.setearParametro("@NombreBanda", nuevo.Bandas.Nombre);
 
                         idBanda = Convert.ToInt32(datosDeAcceso.ejecutarEscalar());
-
-                        // datosDeAcceso.ejecutarConsulta();
-
-                        //obtener Id recien generado
-                        //datosDeAcceso2.cerrarConexion();
-                        //datosDeAcceso2.setearConsulta("Select Id from Bandas Where Nombre = @NombreBanda");
-                        //datosDeAcceso2.setearParametro("@NombreBanda", nombreBanda);
-                        //datosDeAcceso2.ejecutarConsulta(); //consulta porque es select
-
                     }
 
                     datosDeAcceso.cerrarConexion();
 
-                    //	AccesoDatos datosDeAcceso3 = new AccesoDatos();
-                    //datosDeAcceso.setearConsulta("Insert into Discos (IdBanda, Titulo, FechaLanzamiento, CantidadCanciones, Activo, IdEstilo, IdTipoEdicion, UrlImagenTapa) Values(@IdBanda, @Titulo, @FechaLanzamiento, @CantidadCanciones, 1, @IdEstilo, @IdTipoEdicion, @UrlImagenTapa);");
 
                     datosDeAcceso.setearConsulta(@"
                 INSERT INTO Discos (IdBanda, Titulo, FechaLanzamiento, CantidadCanciones, Activo, IdEstilo, IdTipoEdicion, UrlImagenTapa) 
