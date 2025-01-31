@@ -268,7 +268,10 @@ namespace Practica_Discos
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            cargar();
+            //cargar();
+            paginaActual = 1;
+            cargarGrillaConPaginas();
+
             btnVolver.Visible = false;
         }
 
