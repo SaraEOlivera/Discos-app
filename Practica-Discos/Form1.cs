@@ -261,10 +261,9 @@ namespace Practica_Discos
                 btnModificar.Enabled = true;
                 btnEliminacionLogica.Enabled = true;
                 btnEliminacionFisica.Enabled = true;
-                btnAnterior.Enabled = true;
+                btnAnterior.Enabled = paginaActual > 1;
                 btnSiguiente.Enabled = true;
             }
-            btnAnterior.Enabled = paginaActual > 1;
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
