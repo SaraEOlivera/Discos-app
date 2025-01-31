@@ -264,6 +264,7 @@ namespace Practica_Discos
                 btnAnterior.Enabled = true;
                 btnSiguiente.Enabled = true;
             }
+            btnAnterior.Enabled = paginaActual > 1;
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -271,7 +272,7 @@ namespace Practica_Discos
             //cargar();
             paginaActual = 1;
             cargarGrillaConPaginas();
-
+            habilitarBotones();
             btnVolver.Visible = false;
         }
 
